@@ -6,6 +6,7 @@ public class UserProfile {
     private String lastName;
     private String role;
     private int experience;
+    private String farmLocation;
     private String language;
 
     public int getUserID() {
@@ -47,6 +48,14 @@ public class UserProfile {
         this.experience = experience;
     }
 
+    public void setFarmLocation(String farmLocation) {
+        this.farmLocation = farmLocation;
+    }
+
+    public String getFarmLocation() {
+        return farmLocation;
+    }
+
     public String getLanguage() {
         return language;
     }
@@ -62,6 +71,7 @@ public class UserProfile {
                 ", firstName=" + firstName  +
                 ", lastName=" + lastName +
                 ", role=" + role +
+                ", farmLocation=" + farmLocation +
                 ", experience=" + experience +
                 ", language=" + language +
                 '}';

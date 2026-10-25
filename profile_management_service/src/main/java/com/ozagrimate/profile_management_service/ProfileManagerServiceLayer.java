@@ -18,6 +18,7 @@ public class ProfileManagerServiceLayer {
             userProfile.setFirstName("User");
             userProfile.setLastName(String.valueOf(i));
             userProfile.setRole("Farmer");
+            userProfile.setFarmLocation("Doveton");
             userProfile.setExperience(new Random().nextInt(1,30));
             userProfile.setLanguage(("English"));
             userProfiles.add(userProfile);
@@ -31,6 +32,7 @@ public class ProfileManagerServiceLayer {
         userProfile.setLastName(userProfileRequest.getLastName());
         userProfile.setRole(userProfileRequest.getRole());
         userProfile.setExperience(userProfileRequest.getExperience());
+        userProfile.setFarmLocation(userProfileRequest.getFarmLocation());
         userProfile.setLanguage(userProfileRequest.getLanguage());
         userProfiles.add(userProfile);
         return userProfile;
@@ -58,5 +60,18 @@ public class ProfileManagerServiceLayer {
         }
 
         return null;
+    }
+
+
+    public boolean removeUser(int userId) {
+        boolean deleted = false;
+
+        for (int i = 0; i < userProfiles.size(); i++) {
+            if (userProfiles.get(i).getUserID() == userId) {
+                userProfiles.remove(i);
+                deleted = true;
+            }
+        }
+        return deleted;
     }
 }

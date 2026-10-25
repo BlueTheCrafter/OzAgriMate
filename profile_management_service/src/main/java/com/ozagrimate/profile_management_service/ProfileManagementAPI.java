@@ -1,6 +1,7 @@
 package com.ozagrimate.profile_management_service;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -43,6 +44,18 @@ public class ProfileManagementAPI {
         else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+   @DeleteMapping("/delete-user/{id}")
+    public ResponseEntity<DeleteUserResponse> deleteFarmAlert(@PathVariable int id) {
+        boolean deleted = profileManagerServiceLayer.removeUser(id);
+        if (deleted == true) {
+            DeleteUserResponse deleteUserResponse = new DeleteUserResponse(id, "Resigned post");
+            deleteUserResponse.toString();
+
+            return ResponseEntity.ok(deleteUserResponse);
+        }
+        return ResponseEntity.notFound().build();
     }
 
 }
