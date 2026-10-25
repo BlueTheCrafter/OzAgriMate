@@ -47,4 +47,16 @@ public class ProfileManagerServiceLayer {
 
         return null;
     }
+
+    public UserProfile changeUserProfileLanguage(int userId, ChangeLanguageRequest changeLanguageRequest) {
+        for (int i = 0; i < userProfiles.size(); i++) {
+            UserProfile userProfile = userProfiles.get(i);
+            if (userProfile.getUserID() == userId) {
+                userProfile.setLanguage(changeLanguageRequest.getLanguage());
+                return userProfile;
+            }
+        }
+
+        return null;
+    }
 }
