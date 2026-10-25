@@ -35,4 +35,16 @@ public class ProfileManagerServiceLayer {
         userProfiles.add(userProfile);
         return userProfile;
     }
+
+    public UserProfile changeUserProfileRole(int userId, ChangeRoleRequest changeRoleRequest) {
+        for (int i = 0; i < userProfiles.size(); i++) {
+            UserProfile userProfile = userProfiles.get(i);
+            if (userProfile.getUserID() == userId) {
+                userProfile.setRole(changeRoleRequest.getRole());
+                return userProfile;
+            }
+        }
+
+        return null;
+    }
 }
