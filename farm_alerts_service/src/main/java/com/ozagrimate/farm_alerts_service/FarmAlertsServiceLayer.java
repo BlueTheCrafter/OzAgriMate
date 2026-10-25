@@ -14,7 +14,7 @@ public class FarmAlertsServiceLayer {
         farmAlert.setAlertType("Mechanical");
         farmAlert.setAlertSeverity("Critical");
         farmAlert.setAlertMessage("The main irrigation is down.");
-        farmAlert.setAlertID(1);
+        farmAlert.setAlertID(123);
         farmAlerts.add(farmAlert);
 
         FarmAlerts farmAlert2 = new FarmAlerts();
